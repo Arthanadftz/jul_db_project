@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Удалить новость</h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <p>Вы уверены, что хотите удалить "{{ post.title }}"?</p>
+    <button class="btn btn-success ml-2" type="submit">Подтвердить</button>
+    <a class="btn btn-danger ml-2" href="{% url 'posts_list' %}">Вернуться</a>
+</form>
+{% endblock %}

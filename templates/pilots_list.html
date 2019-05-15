@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Список пилотов чемпионата{% endblock %}
+
+{% block content %}
+  <h2 style="background: #f8f9fa; border: 1px solid grey; border-radius: 10px; position: center; text-align: center">Список пилотов чемпионата</h2>
+  <ul class="list-group">
+    {% for pilot in pilots %}
+      <li class="list-group-item disabled">{{ pilot.full_name }} | {{ pilot.date_of_birth }} | Команда {{ order.car.car_tyres }} Tyres | Машина {{ order.car.car_name }} {{ order.car.car_model }} | Двигатель : {{ order.car.car_engine }} - {{ order.car.car_power }} л.с.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
