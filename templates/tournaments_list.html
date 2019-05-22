@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Турниры{% endblock %}
+
+{% block content %}
+  <h2>Список Турниров</h2>
+  {% for object in object_list %}
+    <div class="card" style="background: #f8f9fa; border: 1px solid black; border-radius: 20px;">
+      <div class="card-header">
+        <span class="font-weight-bold">{{ object.name }}</span> &middot;
+        <span class="text-muted">Создал {{ object.author.username }} | {{ object.date }}</span>
+      </div>
+      <a class="btn btn-secondary m-3" href="{% url 'tournament_detail' object.pk %}">Подробнее</a>
+    </div>
+    <br />
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Турнир{% endblock %}
+
+{% block content %}
+  <div class="content-section">
+      <div class="media-body">
+        <h2 class="account-heading">{{ object.name }}</h2>
+        <p class="text-body">Создан: {{ object.date }} </p>
+        <p class="text-body">Создал: {{ object.author.full_name }}</p>
+      </div>
+      <br>
+      {% if user.is_authenticated %}
+        <p>
+          <a class="btn btn-primary ml-2" href="https://challonge.com/ru/{{ object.url }}" target="_blank">Турнирная сетка</a>
+          <p><a class="btn btn-secondary ml-2" href="{% url 'order_new' %}">Подать заявку на участие</a></p>
+        </p>
+      {% endif %}
+      <p><a class="btn btn-secondary ml-2" href="{% url 'tournament_list' %}">Вернуться к списку турниров</a></p>
+  </div>
+{% endblock content %}
